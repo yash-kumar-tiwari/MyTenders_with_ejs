@@ -1,0 +1,54 @@
+<%- include ("adminheader.ejs") %>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 mb-5">
+        <h1 class="display-4 text-white mb-3 mt-0 mt-lg-5">Admin Portal</h1>
+        <div class="d-inline-flex text-white">
+            <p class="m-0"><a class="text-white" href="">Admin</a></p>
+            <p class="m-0 px-2">/</p>
+            <p class="m-0">Add SubCategory</p>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mt-2 mb-5">Admin Add SubCategory</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <font color="Green"><%- output %></font>
+                <form method="post" action="/admin/addsubcategory" enctype="multipart/form-data">
+                    
+                    <div class="form-group">
+                        <label for="catnm">Category Name :</label>
+                        <select class="form-control" name="catnm">
+                            <option>Select Category</option>
+                            <% for (let row of catlist) { %>
+                            <option><%- row.catnm %></option>
+                            <% } %>
+                        </select>    
+                    </div>
+                    <div class="form-group">
+                        <label for="subcatnm">SubCategory Name :</label>
+                        <input type="text" class="form-control" name="subcatnm">
+                    </div>
+                    <div class="form-group">
+                        <label for="caticon">Category Icon :</label>
+                        <input type="file" class="form-control" name="caticon">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">Add SubCategory</button>
+                </form>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <%- include ("adminfooter.ejs") %>

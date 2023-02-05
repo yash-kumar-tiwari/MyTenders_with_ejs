@@ -1,0 +1,135 @@
+<%- include ("header.ejs") %>
+
+<script>
+    function checkEmail(email)
+    {
+        var obj = new XMLHttpRequest();
+        obj.open("GET","http://localhost:3000/checkEmailApi?email="+email ,true);
+        obj.send();
+
+
+        obj.onreadystatechange=function(){
+            if(obj.status==200 && obj.readyState==4)
+            {
+                let userData = JSON.parse(obj.responseText);
+                // let ref=userData.length;
+                //for check user email availability
+                let refEmail = document.getElementById("emailRes");
+                if(userData.length==0)
+                {
+                    refEmail.innerHTML="Email is Available";
+                    refEmail.style.color="green";
+                }
+                else
+                {
+                    refEmail.innerHTML="Email is Already Taken";
+                    refEmail.style.color="red";                    
+                }
+            }
+        }
+
+        // document.getElementById("emailRes").innerHTML=email;        
+    }
+</script>
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 mb-5">
+    <h1 class="display-4 text-white mb-3 mt-0 mt-lg-5">Register</h1>
+    <div class="d-inline-flex text-white">
+        <p class="m-0"><a class="text-white" href="">Home</a></p>
+        <p class="m-0 px-2">/</p>
+        <p class="m-0">Register</p>
+    </div>
+</div>
+<!-- Page Header Start -->
+
+
+<!-- About Start -->
+<div class="container-fluid py-5 mb-5">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-12 pt-5 pb-lg-5">
+                <h1 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Register Page</h1>
+                <h1 class="mb-4 section-title">We Provide The Best Bidding Services</h1>
+
+                <h2>Register Here!!!</h2>
+                <font color="Green"><%- output %></font>
+                <form method="post" action="/register">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input onkeyup="checkEmail(this.value)" type="email" class="form-control" name="email">
+                        <span id="emailRes"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile:</label>
+                        <input type="text" class="form-control" name="mobile">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea rows="5" class="form-control" name="address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <select class="form-control" name="city">
+                            <option>Select City</option>
+                            <option value="Indore">Indore</option>
+                            <option>Bhopal</option>
+                            <option>Ujjain</option>
+                            <option>Dewas</option>
+                            <option>Bhind</option>
+                            <option>Morena</option>
+                            <option>Gwalior</option>
+                            <option>Khargone</option>
+                            <option>Singrauli</option>
+                            <option>Rewa</option>
+                            <option>Katni</option>
+                            <option>Panna</option>
+                            <option>Satna</option>
+                            <option>Sidhi</option>
+                            <option>Harda</option>
+                            <option>Narmada Puram</option>
+                            <option>Chhindwara</option>
+                            <option>Burhanpur</option>
+                            <option>Khandwa</option>
+                            <option>Dhar</option>
+                            <option>Jhabua</option>
+                            <option>Alirajpur</option>
+                            <option>Ratlam</option>
+                            <option>Sheopur</option>
+                            <option>Shivpuri</option>
+                            <option>Neemuch</option>
+                            <option>Mandsaur</option>
+                            <option>Rajgarh</option>
+                            <option>Sehore</option>
+                            <option>Vidisha</option>
+                            <option>Chhatarpur</option>
+                            <option>Niwari</option>
+                            <option>Betul</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <input type="radio" name="gender" value="male"> Male
+                        &nbsp;&nbsp;
+                        <input type="radio" name="gender" value="female"> Female
+                    </div>
+                    <button type="submit" class="btn btn-success">Register</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<%- include ("footer.ejs") %>

@@ -1,0 +1,80 @@
+<%- include ("userheader.ejs") %>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 mb-5">
+        <h1 class="display-4 text-white mb-3 mt-0 mt-lg-5">User Portal</h1>
+        <div class="d-inline-flex text-white">
+            <p class="m-0"><a class="text-white" href="">User Home</a></p>
+            <p class="m-0 px-2">/</p>
+            <p class="m-0">Search Tenders</p>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mt-2 mb-5">Welcome to User Portal</h1>
+                <h2>Search Category >> </h2>
+                <br/>
+                <style>
+                    #catmain
+                    {
+                        height: 450px;
+                        width: 600px;
+                        /* background-color: aqua; */
+                    }
+                    .catpart
+                    {
+                        height: 150px;
+                        width: 200px;
+                        /* background-color:bisque; */
+                        float: left; 
+                    }
+                    .catpart img
+                    {
+                        border:  2px solid crimson;
+                    }
+                </style>
+            <center>
+                <div>
+                    <div id="catmain">
+                        <% for (let row of catDetails) { %>
+                        <div class="catpart">
+                            <a href="/user/showsubcategory/<%- row.catnm %>">
+                            <img src="../uploads/categoryicons/<%- row.caticonnm %>" height="100" width="150"/>
+                            <br/>
+                            <b><%- row.catnm %></b>
+                            </a>
+                        </div>
+                        <% } %>
+                    </div>
+                    <!--to add download feature-->
+                    <!-- <div id="catmain">
+                        <% for (let row of catDetails) { %>
+                        <div class="catpart">
+                            <img src="../uploads/categoryicons/<%- row.caticonnm %>" height="100" width="150"/>
+                            <br/>
+                            <b><%- row.catnm %></b>
+                            <a  target="_blank" href="../uploads/categoryicons/<%- row.caticonnm %>">Download</a>
+                        </div>
+                        <% } %>
+                    </div> -->
+                </div>
+            </center>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    
+                </div>
+                <div class="col-md-7">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <%- include ("userfooter.ejs") %>

@@ -1,0 +1,55 @@
+<%- include ("userheader.ejs") %>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 mb-5">
+        <h1 class="display-4 text-white mb-3 mt-0 mt-lg-5">User Portal</h1>
+        <div class="d-inline-flex text-white">
+            <p class="m-0"><a class="text-white" href="">User Home</a></p>
+            <p class="m-0 px-2">/</p>
+            <p class="m-0">Funds</p>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mt-2 mb-5">Make Payment To Raise Charity</h1>
+                <h3>Donate &#8377; 100 for Charity </h3>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <form action= <%- paypalURL %> method="post">
+                        <!-- Identify your business so that you can collect the payments. -->
+                        <input type="hidden" name="business" value=<%- paypalID %>>
+                        
+                        <!-- Specify a Buy Now button. -->
+                        <input type="hidden" name="cmd" value="_xclick">
+                        
+                        <!-- Specify details about the item that buyers will purchase. -->
+                        <input type="hidden" name="item_name" value="funds">
+                        <!--<input type="hidden" name="item_number" value=1>-->
+                        <input type="hidden" name="amount" value=<%- amount %>>
+                        <input type="hidden" name="currency_code" value="USD">
+                        
+                        <!-- Specify URLs -->
+                        <input type='hidden' name='cancel_return' value="http://localhost:3000/user/cancel/" >
+                        <input type='hidden' name='return' value="http://localhost:3000/user/payment/?amount=<%- amount %>&uid=<%- sessUserNm %>" >
+                        
+                        <!-- Display the payment button. -->
+                        <input type="image" name="submit" border="0"
+                        height="150" width="200" src="../img/donate.png" alt="PayPal - The safer, easier way to pay online">
+                        <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+                    </form>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <%- include ("userfooter.ejs") %>

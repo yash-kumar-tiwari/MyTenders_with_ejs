@@ -1,0 +1,64 @@
+<%- include ("adminheader.ejs") %>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 mb-5">
+        <h1 class="display-4 text-white mb-3 mt-0 mt-lg-5">Admin Launch Tender</h1>
+        <div class="d-inline-flex text-white">
+            <p class="m-0"><a class="text-white" href="">Admin</a></p>
+            <p class="m-0 px-2">/</p>
+            <p class="m-0">Launch Tender</p>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mt-2 mb-5">Welcome to Admin Portal</h1>
+                <span><%- sessUserNm %></span>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                <h2>Launch Tender Here!!!</h2>
+                <font color="Green"><%- output %></font>
+                <form method="post" action="/admin/launchtender" enctype="multipart/form-data" >
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select class="form-control" name="subcatnm">
+                            <option>Select Tender Category</option>
+                        <% for (let row of subcatlist) { %>
+                        <option><%- row.subcatnm %></option>
+                        <% } %>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="tenderdesc">Tender Description:</label>
+                        <textarea rows="5" class="form-control" name="tenderdesc"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tenderdoc">Tender Document:</label>
+                        <input type="file" class="form-control" name="tenderdocnm">
+                    </div>
+                    <div class="form-group">
+                        <label for="enddate">End Date:</label>
+                        <input type="date" class="form-control" name="enddate">
+                    </div>
+                    <button type="submit" class="btn btn-success">Launch Tender</button>
+                </form>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <%- include ("adminfooter.ejs") %>

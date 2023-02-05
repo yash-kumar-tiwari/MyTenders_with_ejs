@@ -1,0 +1,49 @@
+<%- include ("userheader.ejs") %>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 mb-5">
+        <h1 class="display-4 text-white mb-3 mt-0 mt-lg-5">User Change Password</h1>
+        <div class="d-inline-flex text-white">
+            <p class="m-0"><a class="text-white" href="">User</a></p>
+            <p class="m-0 px-2">/</p>
+            <p class="m-0">Change Password</p>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mt-2 mb-5">Change Your Password</h1>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <font color="Green"><%- output %></font>
+                <form method="post" action="/admin/cpadmin">
+                    <div class="form-group">
+                        <label for="oldpass">Old Password:</label>
+                        <input type="password" class="form-control" name="oldpass">
+                    </div>
+                    <div class="form-group">
+                        <label for="newpass">New Password:</label>
+                        <input type="password" class="form-control" name="newpass">
+                    </div>
+                    <div class="form-group">
+                        <label for="confpass">Confirm Password:</label>
+                        <input type="password" class="form-control" name="confpass">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">Change Password</button>
+                </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <%- include ("userfooter.ejs") %>

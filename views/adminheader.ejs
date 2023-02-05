@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tenders - Admin Portal</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="../img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar p-0">
+        <div class="container-lg p-0">
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="m-0 text-white display-4"><span class="text-primary">T</span>en<span class="text-primary">D</span>ers</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="/admin" class="nav-item nav-link active">Admin Home</a>
+                        <a href="/admin/manageusers" class="nav-item nav-link">Manage Users</a>
+                        <a href="/admin/launchtender" class="nav-item nav-link">Launch Tender</a>
+                        <!-- <a href="/pricing" class="nav-item nav-link">Pricing</a> -->
+                        <!-- <a href="/register" class="nav-item nav-link">Register</a> -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Manage Category</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="/admin/addcategory" class="dropdown-item">Add Category</a>
+                                <a href="/admin/addsubcategory" class="dropdown-item">Add Sub-Category</a>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Settings</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="/admin/epadmin" class="dropdown-item">Edit Profile</a>
+                                <a href="/admin/cpadmin" class="dropdown-item">Change Password</a>
+                            </div>
+                        </div>
+                        <a href="/login" class="nav-item nav-link">Logout</a>
+                        <a href="" style="color:wheat ;"  class="nav-item nav-link"><b>Welcome Admin<br/><%- sessUserNm %></b></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->

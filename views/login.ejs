@@ -1,0 +1,55 @@
+<%- include ("header.ejs") %>
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 mb-5">
+    <h1 class="display-4 text-white mb-3 mt-0 mt-lg-5">Login</h1>
+    <div class="d-inline-flex text-white">
+        <p class="m-0"><a class="text-white" href="">Home</a></p>
+        <p class="m-0 px-2">/</p>
+        <p class="m-0">Login</p>
+    </div>
+</div>
+<!-- Page Header Start -->
+
+
+<!-- About Start -->
+<div class="container-fluid py-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <!-- <div class="col-lg-5">
+                <div
+                    class="d-flex flex-column align-items-center justify-content-center bg-about rounded h-100 py-5 px-3">
+                    <i class="fa fa-5x fa-award text-primary mb-4"></i>
+                    <h1 class="display-2 text-white mb-2" data-toggle="counter-up">25</h1>
+                    <h2 class="text-white m-0">Years Experience</h2>
+                </div>
+            </div> -->
+            <div class="col-lg-12 pt-5 pb-lg-5">
+                <h1 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Login Page</h1>
+                <h2>Login Here!!!</h2>
+                <font color="Green"><%- output %></font>
+                <form method="post" action="/login">
+                    
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" name="email" value="<%- cookUserNm %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" name="password" value="<%- cookUserPass %>">
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="chk" value="remember">&nbsp;&nbsp;<b>Remember Me?</b>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">Login</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<%- include ("footer.ejs") %>

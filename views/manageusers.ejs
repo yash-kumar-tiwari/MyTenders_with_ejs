@@ -1,0 +1,96 @@
+<%- include ("adminheader.ejs") %>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 mb-5">
+        <h1 class="display-4 text-white mb-3 mt-0 mt-lg-5">Admin Home</h1>
+        <div class="d-inline-flex text-white">
+            <p class="m-0"><a class="text-white" href="">Admin</a></p>
+            <p class="m-0 px-2">/</p>
+            <p class="m-0">Manage Users</p>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mt-2 mb-5">Welcome to Admin Portal</h1>
+            </div>
+            <div class="text-center">
+                <h2 class="mt-2 mb-5">View & Manage Users</h2>
+            </div>
+            <!-- <%- userDetails %> -->
+            <center>
+
+            <table class="table table-bordered table-hover">
+                <tr class="table table-dark ">
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Gender</th>
+                    <th>Info</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                
+                <% for (let row of userDetails) { %>
+
+                    <tr>
+                        <td><%- row._id %></td>
+                        <td><%- row.name %></td>
+                        <td><%- row.email %></td>
+                        <td><%- row.mobile %></td>
+                        <td><%- row.address %></td>
+                        <td><%- row.city %></td>
+                        <td><%- row.gender %></td>
+                        <td><%- row.info %></td>
+                        <td>
+                            <% if (row.status) { %>
+                                <!-- Query String -->
+                                <!-- <a href="/admin/manageuserstatus?status=block&regid=<%- row._id %>" title="Block User"> -->
+
+                                <!-- Param using sub url method -->
+                                <a href="/admin/manageuserstatus/block/<%- row._id %>" title="Block User">
+                                <img src="https://cdn1.iconfinder.com/data/icons/ios-web-user-interface-two-color-vol-3/512/Block_delete_person_remove_user-512.png" height="50" width="40">
+                                </a>
+                            <% } else { %>
+                                <!-- Query String -->
+                                <!-- <a href="/admin/manageuserstatus?status=verify&regid=<%- row._id %>" title="Verify User"> -->
+
+                                <!-- Param using sub url method -->
+                                <a href="/admin/manageuserstatus/verify/<%- row._id %>" title="Verify User">
+                                    <img src="https://cdn0.iconfinder.com/data/icons/seo-web-4-1/128/Vigor_Approved-Verified-Account-User-512.png" height="50" width="40">
+                                </a>                            
+                            <% } %>
+                        
+                        </td>
+
+                        <td>
+                            <!-- Query String -->
+                            <!-- <a href="/admin/manageuserstatus?status=delete&regid=<%- row._id %>" title="Delete User"> -->
+
+                            <!-- Param using sub url method -->
+                            <a href="/admin/manageuserstatus/delete/<%- row._id %>" title="Delete User">
+                                <img src="https://cdn1.iconfinder.com/data/icons/color-bold-style/21/56-512.png" height="50" width="40"/>
+                            </a>
+                        </td>
+
+                        
+                    </tr>
+
+                <% } %>
+
+
+            </table>
+        </center>
+
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <%- include ("adminfooter.ejs") %>

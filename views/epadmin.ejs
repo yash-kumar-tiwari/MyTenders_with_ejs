@@ -1,0 +1,98 @@
+<%- include ("adminheader.ejs") %>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 mb-5">
+        <h1 class="display-4 text-white mb-3 mt-0 mt-lg-5">Admin Edit Profile</h1>
+        <div class="d-inline-flex text-white">
+            <p class="m-0"><a class="text-white" href="">Admin</a></p>
+            <p class="m-0 px-2">/</p>
+            <p class="m-0">Edit Profile</p>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mt-2 mb-5">Update Your Profile</h1>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <font color="Green"><%- output %></font>
+                <form method="post" action="/admin/epadmin">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" name="name" value="<%- userDetails.name %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input readonly onkeyup="checkEmail(this.value)" type="email" class="form-control" name="email" value="<%- userDetails.email %>">
+                        <span id="emailRes"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile:</label>
+                        <input type="text" class="form-control" name="mobile" value="<%- userDetails.mobile %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea rows="5" class="form-control" name="address"><%- userDetails.address %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <select class="form-control" name="city">
+                            <option><%- userDetails.city %></option>
+                            <option value="Indore">Indore</option>
+                            <option>Bhopal</option>
+                            <option>Ujjain</option>
+                            <option>Dewas</option>
+                            <option>Bhind</option>
+                            <option>Morena</option>
+                            <option>Gwalior</option>
+                            <option>Khargone</option>
+                            <option>Singrauli</option>
+                            <option>Rewa</option>
+                            <option>Katni</option>
+                            <option>Panna</option>
+                            <option>Satna</option>
+                            <option>Sidhi</option>
+                            <option>Harda</option>
+                            <option>Narmada Puram</option>
+                            <option>Chhindwara</option>
+                            <option>Burhanpur</option>
+                            <option>Khandwa</option>
+                            <option>Dhar</option>
+                            <option>Jhabua</option>
+                            <option>Alirajpur</option>
+                            <option>Ratlam</option>
+                            <option>Sheopur</option>
+                            <option>Shivpuri</option>
+                            <option>Neemuch</option>
+                            <option>Mandsaur</option>
+                            <option>Rajgarh</option>
+                            <option>Sehore</option>
+                            <option>Vidisha</option>
+                            <option>Chhatarpur</option>
+                            <option>Niwari</option>
+                            <option>Betul</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <input type="radio" name="gender" value="male" <%- m %>> Male
+                        &nbsp;&nbsp;
+                        <input type="radio" name="gender" value="female" <%- f %>> Female
+                    </div>
+                    <button type="submit" class="btn btn-success">Update</button>
+                </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <%- include ("adminfooter.ejs") %>
